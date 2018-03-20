@@ -1,5 +1,5 @@
 export const state = () => ({
-  wordpressAPI: process.env.WP_API,
+  wordpressAPI: process.env.WP_API + '/wp-json',
   meta: {
     description: '',
     name: ''

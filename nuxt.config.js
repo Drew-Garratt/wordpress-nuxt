@@ -2,6 +2,7 @@ const webpack = require('webpack')
 
 module.exports = {
   modules: ['@nuxtjs/dotenv', '@nuxtjs/axios', '@nuxtjs/pwa'],
+  plugins: [{ src: '~plugins/web-font-loader', ssr: false }],
   /*
   ** Headers of the page
   */
