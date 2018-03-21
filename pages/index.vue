@@ -8,6 +8,7 @@
       <h2 class="subtitle">
         NUXT powered Wordpress Site
       </h2>
+      <img class="lazyload" data-src="http://placehold.it/700x300">
       <div class="links">
         <a
           href="https://nuxtjs.org/"

@@ -47,6 +47,7 @@ module.exports = {
         })
       }
     },
+    vendor: ['axios', 'lazysizes'],
     plugins: [new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)]
   }
 }
