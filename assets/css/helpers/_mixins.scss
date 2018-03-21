@@ -1,2 +1,21 @@
 // Global mixins
 // =============
+$em: $root-font-size * 1;
+
+@function em($target, $context: $root-font-size) {
+  @if $target == 0 {
+    @return 0;
+  }
+  $target: $target / ($target * 0 + 1); // Strip off units to be sure we have a plain number. (eg: 20px -> 20)
+  $context: $context / ($context * 0 + 1); // Strip off units to be sure we have a plain number. (eg: 20px -> 20)
+  @return $target / $context * 1em; // The *1em ensures we return an EM number.
+}
+
+@function rem($target, $context: $root-font-size) {
+  @if $target == 0 {
+    @return 0;
+  }
+  $target: $target / ($target * 0 + 1); // Strip off units to be sure we have a plain number. (eg: 20px -> 20)
+  $context: $context / ($context * 0 + 1); // Strip off units to be sure we have a plain number. (eg: 20px -> 20)
+  @return $target / $context * 1rem; // The *1em ensures we return an EM number.
+}

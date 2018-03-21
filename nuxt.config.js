@@ -1,8 +1,15 @@
 const webpack = require('webpack')
 
 module.exports = {
-  modules: ['@nuxtjs/dotenv', '@nuxtjs/axios', '@nuxtjs/pwa'],
+  modules: [
+    '@nuxtjs/dotenv',
+    '@nuxtjs/axios',
+    '@nuxtjs/pwa',
+    ['nuxt-sass-resources-loader', '@/assets/css/main.scss']
+  ],
   plugins: [{ src: '~plugins/web-font-loader', ssr: false }],
+
+  css: ['normalize.css'],
   /*
   ** Headers of the page
   */
