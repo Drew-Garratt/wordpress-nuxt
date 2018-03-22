@@ -7,7 +7,10 @@ module.exports = {
     '@nuxtjs/pwa',
     ['nuxt-sass-resources-loader', '@/assets/css/main.scss']
   ],
-  plugins: [{ src: '~plugins/web-font-loader', ssr: false }],
+  plugins: [
+    { src: '~plugins/web-font-loader', ssr: false },
+    { src: '~plugins/current-device', ssr: false }
+  ],
 
   css: ['normalize.css'],
   /*

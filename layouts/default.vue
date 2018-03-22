@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div class="app">
+    <the-header/>
     <nuxt/>
   </div>
 </template>
@@ -9,3 +10,11 @@
   font-size: em(12px);
 }
 </style>
+
+<script>
+export default {
+  components: {
+    TheHeader: () => import('../components/TheHeader')
+  }
+}
+</script>

@@ -1,23 +1,15 @@
 <template>
-  <section class="container">
-    <div>
-      <app-logo/>
-      <h1 class="title">
-        wordpress-nuxt
-      </h1>
-      <h2 class="subtitle">
-        NUXT powered Wordpress Site
-      </h2>
-      <img class="lazyload" data-src="http://placehold.it/700x300">
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button button--green">Documentation</a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey">GitHub</a>
+  <section div class="page page--home">
+    <div class="hero">
+      <div class="wrap">
+        <h1>Title goes here</h1>
+      </div>
+    </div>
+    <div class="projects">
+      <div class="wrap flex">
+        <img class="col" src="http://via.placeholder.com/350x150">
+        <img class="col" src="http://via.placeholder.com/350x150">
+        <img class="col" src="http://via.placeholder.com/350x150">
       </div>
     </div>
   </section>
@@ -33,34 +25,18 @@ export default {
 }
 </script>
 
-<style>
-.container {
-  min-height: 100vh;
+<style lang="scss" scoped>
+.section {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+
+  &--hero {
+    height: 100vh;
+  }
 }
 
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; /* 1 */
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
+.col {
+  flex-grow: 1;
+  flex-basis: 0;
+  max-width: 100%;
 }
 </style>
