@@ -22,7 +22,7 @@
 @import 'animations/transitions';
 
 html {
-  font-size: 16px;
+  font-size: $root-font-size;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -38,17 +38,10 @@ html {
   margin: 0;
 }
 
-.wrap {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
 .container {
   margin-right: auto;
   margin-left: auto;
-
-  &--fluid {
-    padding-right: 2rem;
-    padding-left: 2rem;
-  }
+  padding-right: 2rem;
+  padding-left: 2rem;
+  max-width: 1200px;
 }

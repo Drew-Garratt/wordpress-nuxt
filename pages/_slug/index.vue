@@ -2,7 +2,7 @@
   <section div class="page page--home">
     <div class="container">
       <div class="hero flex">
-        <h1>{{ title }}</h1>
+        <h1>{{ page.title }}</h1>
       </div>
     </div>
     <div class="projects container">
@@ -17,23 +17,23 @@
 
 <script>
 import { mapState } from 'vuex'
-import AppLogo from '~/components/AppLogo.vue'
 
 export default {
-  async asyncData({ app, store }) {
-    const frontPage = await app.$axios.get(
-      `${
-        store.state.wordpressAPI
-      }/wp/v2/pages?slug=front-page&status=publish&_embed`
+  async asyncData({ app, store, params, error }) {
+    const res = await app.$axios.get(
+      `${store.state.wordpressAPI}/wp/v2/pages?slug=${
+        params.slug
+      }&status=publish&_embed`
     )
-    store.commit('setFrontpage', frontPage.data)
-  },
-  components: {
-    AppLogo
+    if (res.data.length > 0) {
+      store.commit('setPage', res.data)
+    } else {
+      error({ statusCode: 404, message: 'Page not found' })
+    }
   },
   computed: {
     ...mapState({
-      title: state => state.frontpage.acf.title
+      page: state => state.page
     })
   }
 }

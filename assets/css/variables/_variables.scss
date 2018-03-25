@@ -2,7 +2,18 @@
 // =======================
 
 // Sizes
-$root-font-size: 12px;
+$root-font-size: 14px;
+
+// Heading Fonts
+$heading-font: 'Muli', sans-serif;
+
+// Body Fonts
+$body-font: 'Montserrat', sans-serif;
+
+$serif-font: 'Merriweather', serif;
+$sans-font: $body-font;
+
+// Body Font
 
 // Colors
 @import 'colors';
