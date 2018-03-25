@@ -26,7 +26,11 @@ export default {
       }&status=publish&_embed`
     )
     if (res.data.length > 0) {
-      store.commit('setCurrentPage', res.data)
+      if (res.data[0].parent === 0) {
+        store.commit('setCurrentPage', res.data)
+      } else {
+        error({ statusCode: 404, message: 'Page not found' })
+      }
     } else {
       error({ statusCode: 404, message: 'Page not found' })
     }

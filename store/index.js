@@ -17,11 +17,6 @@ export const actions = {
   async nuxtServerInit({ commit, state }) {
     const meta = await this.$axios.get(state.wordpressAPI)
     commit('setMeta', meta.data)
-
-    const frontPage = await this.$axios.get(
-      `${state.wordpressAPI}/wp/v2/pages?slug=front-page&status=publish&_embed`
-    )
-    commit('setFrontpage', frontPage.data)
   }
 }
 
