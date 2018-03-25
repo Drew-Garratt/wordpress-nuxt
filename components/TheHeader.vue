@@ -7,7 +7,7 @@
       <nuxt-link to="/" exact>Home</nuxt-link>
       <nuxt-link to="/sample-page">Sample Page</nuxt-link>
       <nuxt-link to="/sample-page/sample-child-page">Sample Child Page</nuxt-link>
-      <nuxt-link to="/">News</nuxt-link>
+      <nuxt-link to="/news">News</nuxt-link>
       <button class="menu-toggle">
         <svg width="30" height="25" viewBox="0 0 30 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
           <g id="Canvas" transform="translate(570 311)">

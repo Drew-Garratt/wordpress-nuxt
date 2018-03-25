@@ -29,6 +29,9 @@ export const mutations = {
   },
   setCurrentPage(state, data) {
     state.page = filterPostData(data)
+  },
+  setArticles(state, data) {
+    state.articles = data
   }
 }
 
