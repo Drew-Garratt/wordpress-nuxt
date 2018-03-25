@@ -5,7 +5,8 @@ export const state = () => ({
     name: ''
   },
   frontpage: null,
-  page: null,
+  currentPage: null,
+  parentPage: null,
   pages: [],
   article: null,
   articles: [],
@@ -14,8 +15,13 @@ export const state = () => ({
 
 export const actions = {
   async nuxtServerInit({ commit, state }) {
-    let meta = await this.$axios.get(state.wordpressAPI)
+    const meta = await this.$axios.get(state.wordpressAPI)
     commit('setMeta', meta.data)
+
+    const frontPage = await this.$axios.get(
+      `${state.wordpressAPI}/wp/v2/pages?slug=front-page&status=publish&_embed`
+    )
+    commit('setFrontpage', frontPage.data)
   }
 }
 
@@ -26,7 +32,7 @@ export const mutations = {
   setFrontpage(state, data) {
     state.frontpage = filterPostData(data)
   },
-  setPage(state, data) {
+  setCurrentPage(state, data) {
     state.page = filterPostData(data)
   }
 }
@@ -37,6 +43,8 @@ function filterPostData(data) {
   let post = data[0]
   if (post.hasOwnProperty('id')) {
     postSave.id = post.id
+    postSave.parent = post.parent
+    postSave.menu_order = post.menu_order
     postSave.dateid = post.date
     postSave.modified = post.modified
     postSave.slug = post.slug

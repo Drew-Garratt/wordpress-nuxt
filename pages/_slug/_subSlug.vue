@@ -22,11 +22,24 @@ export default {
   async asyncData({ app, store, params, error }) {
     const res = await app.$axios.get(
       `${store.state.wordpressAPI}/wp/v2/pages?slug=${
-        params.slug
+        params.subSlug
       }&status=publish&_embed`
     )
     if (res.data.length > 0) {
-      store.commit('setCurrentPage', res.data)
+      if (res.data[0].parent !== 0) {
+        const parentRes = await app.$axios.get(
+          `${store.state.wordpressAPI}/wp/v2/pages?id=${
+            res.data.parent
+          }&status=publish&_embed`
+        )
+        if (parentRes.data.length > 0) {
+          store.commit('setCurrentPage', res.data)
+        } else {
+          error({ statusCode: 404, message: 'Page not found' })
+        }
+      } else {
+        error({ statusCode: 404, message: 'Page not found' })
+      }
     } else {
       error({ statusCode: 404, message: 'Page not found' })
     }
