@@ -2,15 +2,15 @@
   <section div class="page page--home">
     <div class="container">
       <div class="hero flex">
-        <h1>{{ title }}</h1>
+        <h1>{{ page.title }}</h1>
+      </div>
+      <div class="intro flex">
+        <h2>{{ acf.intro[0].title }}</h2>
+        <div class="message" v-html="acf.intro[0].message"/>
       </div>
     </div>
-    <div class="projects container">
-      <div class="projects__flex flex">
-        <img class="col" src="http://via.placeholder.com/350x150">
-        <img class="col" src="http://via.placeholder.com/350x150">
-        <img class="col" src="http://via.placeholder.com/350x150">
-      </div>
+    <div class="container">
+      3
     </div>
   </section>
 </template>
@@ -33,8 +33,16 @@ export default {
   },
   computed: {
     ...mapState({
+      page: state => state.frontpage,
+      acf: state => state.frontpage.acf,
       title: state => state.frontpage.acf.title
     })
+  },
+  head() {
+    return {
+      title: `${this.page.title} | ${this.$store.state.meta.name}`,
+      meta: [{ description: this.page.excerpt }]
+    }
   }
 }
 </script>
@@ -58,6 +66,16 @@ export default {
 
   .col {
     width: 33.33%;
+  }
+}
+
+.intro {
+  h2 {
+    width: 40%;
+  }
+
+  .message {
+    width: 60%;
   }
 }
 </style>

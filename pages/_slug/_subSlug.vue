@@ -44,9 +44,17 @@ export default {
       error({ statusCode: 404, message: 'Page not found' })
     }
   },
+
+  head() {
+    return {
+      title: `${this.page.title} | ${this.$store.state.meta.name}`,
+      meta: [{ description: this.page.excerpt }]
+    }
+  },
+
   computed: {
     ...mapState({
-      page: state => state.page
+      page: state => state.currentPage
     })
   }
 }

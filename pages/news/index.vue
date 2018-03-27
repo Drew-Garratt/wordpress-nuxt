@@ -33,6 +33,14 @@ export default {
       error({ statusCode: 404, message: 'Page not found' })
     }
   },
+
+  head() {
+    return {
+      title: `News | ${this.$store.state.meta.name}`,
+      meta: `News page`
+    }
+  },
+
   computed: {
     ...mapState({
       articles: state => state.articles

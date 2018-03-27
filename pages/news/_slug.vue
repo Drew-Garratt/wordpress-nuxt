@@ -51,7 +51,16 @@ export default {
   },
 
   mounted() {
-    this.preview()
+    if (this.page.preview) {
+      this.preview()
+    }
+  },
+
+  head() {
+    return {
+      title: `${this.page.title} | ${this.$store.state.meta.name}`,
+      meta: [{ description: this.page.excerpt }]
+    }
   },
 
   methods: {

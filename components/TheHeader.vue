@@ -64,7 +64,7 @@ nav {
   display: flex;
 
   a {
-    padding: 0 em(10px);
+    margin: 0 em(10px);
   }
 }
 

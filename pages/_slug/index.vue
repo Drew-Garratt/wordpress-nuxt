@@ -35,10 +35,39 @@ export default {
       error({ statusCode: 404, message: 'Page not found' })
     }
   },
+
+  head() {
+    return {
+      title: `${this.page.title} | ${this.$store.state.meta.name}`,
+      meta: [{ description: this.page.excerpt }]
+    }
+  },
+
   computed: {
     ...mapState({
       page: state => state.currentPage
     })
+  },
+
+  mounted() {
+    if (this.page.preview) {
+      this.preview()
+    }
+  },
+
+  methods: {
+    preview() {
+      this.$axios
+        .get(
+          `${this.$store.state.wordpressAPI}/postlight/v1/post/preview?id=${
+            this.$route.query.id
+          }&_wpnonce=${this.$route.query.token}`,
+          { withCredentials: true }
+        )
+        .then(response => {
+          this.$store.commit('setCurrentPage', response.data)
+        })
+    }
   }
 }
 </script>
