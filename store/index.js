@@ -4,13 +4,13 @@ export const state = () => ({
     description: '',
     name: ''
   },
-  frontpage: null,
-  currentPage: null,
-  parentPage: null,
+  frontpage: new newPost(),
+  currentPage: new newPost(),
+  parentPage: new newPost(),
   pages: [],
-  article: null,
   articles: [],
-  authorArticles: []
+  authorArticles: [],
+  wpnonce: ''
 })
 
 export const actions = {
@@ -28,17 +28,58 @@ export const mutations = {
     state.frontpage = filterPostData(data)
   },
   setCurrentPage(state, data) {
-    state.page = filterPostData(data)
+    state.currentPage = filterPostData(data)
   },
   setArticles(state, data) {
     state.articles = data
+  },
+  setPreviewPage(state) {
+    let previewPage = new newPost()
+    previewPage.title = 'Preview'
+    previewPage.preview = true
+    state.currentPage = previewPage
+  },
+  setWpnonce(state, data) {
+    state.wpnonce = data
   }
 }
 
 // Save only relavent portions of the response
-function filterPostData(data) {
-  let postSave = {}
-  let post = data[0]
+class newPost {
+  constructor(
+    id = '',
+    parent = '',
+    menu_order = '',
+    dateid = '',
+    modified = '',
+    slug = '',
+    title = '',
+    excerpt = '',
+    content = '',
+    preview = false
+  ) {
+    this.id = id
+    this.parent = parent
+    this.menu_order = menu_order
+    this.dateid = dateid
+    this.modified = modified
+    this.slug = slug
+    this.title = title
+    this.excerpt = excerpt
+    this.content = content
+    this.preview = preview
+  }
+}
+
+// Save only relavent portions of the response
+const filterPostData = function(data) {
+  let postSave = new newPost()
+  let post = {}
+  if (Array.isArray(data)) {
+    post = data[0]
+  } else {
+    post = data
+  }
   if (post.hasOwnProperty('id')) {
     postSave.id = post.id
     postSave.parent = post.parent

@@ -14,10 +14,13 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
+    "@nuxtjs/auth": "^4.0.0-rc.3",
     "@nuxtjs/axios": "^5.1.1",
     "@nuxtjs/dotenv": "^1.1.0",
     "@nuxtjs/google-analytics": "^2.0.2",
+    "@nuxtjs/proxy": "^1.1.4",
     "@nuxtjs/pwa": "^2.0.8",
+    "cookie": "^0.3.1",
     "current-device": "^0.7.2",
     "lazysizes": "^4.0.2",
     "node-sass": "^4.7.2",

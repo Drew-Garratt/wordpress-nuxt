@@ -19,22 +19,54 @@
 import { mapState } from 'vuex'
 
 export default {
-  async asyncData({ app, store, params, error }) {
-    const res = await app.$axios.get(
-      `${store.state.wordpressAPI}/wp/v2/posts?slug=${
-        params.slug
-      }&status=publish&_embed`
-    )
-    if (res.data.length > 0) {
-      store.commit('setCurrentPage', res.data)
+  async asyncData({ app, store, params, query, error }) {
+    if (params.slug !== '_preview') {
+      const res = await app.$axios.get(
+        `${store.state.wordpressAPI}/wp/v2/posts?slug=${
+          params.slug
+        }&status=publish&_embed`
+      )
+      if (res.data.length > 0) {
+        store.commit('setCurrentPage', res.data)
+      } else {
+        error({ statusCode: 404, message: 'Page not found' })
+      }
     } else {
-      error({ statusCode: 404, message: 'Page not found' })
+      if (
+        query.hasOwnProperty('id') &&
+        query.hasOwnProperty('revision') &&
+        query.hasOwnProperty('token')
+      ) {
+        store.commit('setPreviewPage')
+        store.commit('setWpnonce', params.token)
+      } else {
+        error({ statusCode: 404, message: 'Page not found' })
+      }
     }
   },
   computed: {
     ...mapState({
-      page: state => state.page
+      page: state => state.currentPage
     })
+  },
+
+  mounted() {
+    this.preview()
+  },
+
+  methods: {
+    preview() {
+      this.$axios
+        .get(
+          `${this.$store.state.wordpressAPI}/postlight/v1/post/preview?id=${
+            this.$route.query.id
+          }&_wpnonce=${this.$route.query.token}`,
+          { withCredentials: true }
+        )
+        .then(response => {
+          this.$store.commit('setCurrentPage', response.data)
+        })
+    }
   }
 }
 </script>

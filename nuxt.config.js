@@ -50,7 +50,7 @@ module.exports = {
         })
       }
     },
-    vendor: ['axios', 'lazysizes'],
+    vendor: ['lazysizes'],
     plugins: [new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)]
   }
 }

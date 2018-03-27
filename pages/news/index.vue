@@ -21,8 +21,7 @@
 import { mapState } from 'vuex'
 
 export default {
-  async asyncData({ app, store, params, error }) {
-    console.log(params)
+  async asyncData({ app, store, error }) {
     const res = await app.$axios.get(
       `${
         store.state.wordpressAPI
