@@ -1,2 +1,2 @@
-/*eslint-disable */
+/* eslint-disable */
 import device from 'current-device/'

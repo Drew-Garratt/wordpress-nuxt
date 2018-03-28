@@ -1,11 +1,11 @@
 <template>
   <section div class="page page--home">
-    <div class="container">
+    <div class="container container--fluid">
       <div class="hero flex">
         <h1>{{ page.title }}</h1>
       </div>
     </div>
-    <div class="projects container">
+    <div class="projects container container--fluid">
       <div class="projects__flex flex">
         <img class="col" src="http://via.placeholder.com/350x150">
         <img class="col" src="http://via.placeholder.com/350x150">

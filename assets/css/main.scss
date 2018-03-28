@@ -1,3 +1,4 @@
+// Importing external mixins
 // Base
 @import 'variables/variables';
 @import 'helpers/mixins';
@@ -41,7 +42,26 @@ html {
 .container {
   margin-right: auto;
   margin-left: auto;
-  padding-right: 2rem;
-  padding-left: 2rem;
-  max-width: 1200px;
+  max-width: 1440px;
+
+  &--fluid {
+    padding-right: 3rem;
+    padding-left: 3rem;
+  }
+
+  &--small {
+    padding-right: 9rem;
+    padding-left: 9rem;
+  }
+}
+
+.columns {
+  display: flex;
+  margin: 0 -1.5rem;
+}
+
+.column {
+  flex-grow: 1;
+  flex-shrink: 1;
+  padding: 0 1.5rem;
 }

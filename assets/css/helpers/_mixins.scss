@@ -1,5 +1,8 @@
 // Global mixins
 // =============
+@import '../../../node_modules/susy/sass/susy';
+@import '../../../node_modules/mappy-breakpoints/mappy-breakpoints';
+
 $em: $root-font-size * 1;
 
 @function em($target, $context: $root-font-size) {

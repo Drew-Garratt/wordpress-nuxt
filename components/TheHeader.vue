@@ -55,11 +55,11 @@ header {
 }
 
 .logo {
-  padding: rem(25px) rem(30px) 0;
+  margin: rem(25px) 3rem 0;
 }
 
 nav {
-  padding: rem(25px) rem(30px) 0;
+  padding: rem(25px) 3rem 0;
   align-items: center;
   display: flex;
 

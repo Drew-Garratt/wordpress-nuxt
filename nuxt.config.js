@@ -5,14 +5,22 @@ module.exports = {
     '@nuxtjs/dotenv',
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
-    ['nuxt-sass-resources-loader', '@/assets/css/main.scss']
+    [
+      'nuxt-sass-resources-loader',
+      [
+        '@/assets/css/variables/_variables.scss',
+        '@/assets/css/helpers/_mixins.scss',
+        '@/assets/css/helpers/_functions.scss',
+        '@/assets/css/base/_global_vars.scss'
+      ]
+    ]
   ],
   plugins: [
     { src: '~plugins/web-font-loader', ssr: false },
-    { src: '~plugins/current-device', ssr: false }
+    { src: '~plugins/current-device', ssr: false },
+    { src: '~plugins/vue-particles', ssr: false }
   ],
-
-  css: ['normalize.css'],
+  css: ['normalize.css', '@/assets/css/main.scss'],
   /*
   ** Headers of the page
   */
@@ -50,6 +58,7 @@ module.exports = {
         })
       }
     },
+    maxChunkSize: 300000,
     vendor: ['lazysizes'],
     plugins: [new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)]
   }
