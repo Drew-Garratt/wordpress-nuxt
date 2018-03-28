@@ -15,6 +15,17 @@ module.exports = {
       ]
     ]
   ],
+  workbox: {
+    runtimeCaching: [
+      {
+        urlPattern: '^https://fonts.(?:googleapis|gstatic).com/(.*)',
+        // Defaults to `networkFirst` if omitted
+        handler: 'cacheFirst',
+        // Defaults to `GET` if omitted
+        method: 'GET'
+      }
+    ]
+  },
   plugins: [
     { src: '~plugins/web-font-loader', ssr: false },
     { src: '~plugins/current-device', ssr: false },

@@ -4,16 +4,3 @@ $z-index: (
   notification: 1000,
   loader: 1001
 );
-
-$breakpoints: (
-  small: 480px,
-  large: 800px
-);
-
-// You can use and valid arguments inserted into mappy-bp as the map values. Any of the following would do
-$mappy-queries: (
-  phone: mappy-bp(h max-height small),
-  tablet: mappy-bp(small large),
-  desktop: mappy-bp(960px 1200px),
-  change-type: mappy-bp(small, $type: screen)
-);

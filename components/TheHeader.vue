@@ -4,6 +4,7 @@
       <h1 class="fs-medium" v-html="meta.name"/>
     </nuxt-link>
     <nav>
+
       <nuxt-link to="/" exact>Home</nuxt-link>
       <nuxt-link to="/sample-page">Sample Page</nuxt-link>
       <nuxt-link to="/sample-page/sample-child-page">Sample Child Page</nuxt-link>
@@ -65,6 +66,11 @@ nav {
 
   a {
     margin: 0 em(10px);
+    display: none;
+
+    @media screen and (min-width: em(800px)) {
+      display: inline;
+    }
   }
 }
 

@@ -22,7 +22,8 @@
 @import 'animations/animations';
 @import 'animations/transitions';
 
-html {
+html,
+:root {
   font-size: $root-font-size;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
@@ -45,19 +46,32 @@ html {
   max-width: 1440px;
 
   &--fluid {
-    padding-right: 3rem;
-    padding-left: 3rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+
+    @media screen and (min-width: em(425px)) {
+      padding-right: 3rem;
+      padding-left: 3rem;
+    }
   }
 
   &--small {
-    padding-right: 9rem;
-    padding-left: 9rem;
+    padding-right: 2rem;
+    padding-left: 2rem;
+
+    @media screen and (min-width: em(425px)) {
+      padding-right: 9rem;
+      padding-left: 9rem;
+    }
   }
 }
 
 .columns {
-  display: flex;
   margin: 0 -1.5rem;
+
+  @media screen and (min-width: em(600px)) {
+    display: flex;
+  }
 }
 
 .column {
