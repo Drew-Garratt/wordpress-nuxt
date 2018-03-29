@@ -29,7 +29,8 @@ module.exports = {
   plugins: [
     { src: '~plugins/web-font-loader', ssr: false },
     { src: '~plugins/current-device', ssr: false },
-    { src: '~plugins/vue-particles', ssr: false }
+    { src: '~plugins/vue-particles', ssr: false },
+    { src: '~plugins/lazysizes', ssr: false }
   ],
   css: ['normalize.css', '@/assets/css/main.scss'],
   /*
@@ -70,7 +71,6 @@ module.exports = {
       }
     },
     maxChunkSize: 300000,
-    vendor: ['lazysizes'],
     plugins: [new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)]
   }
 }
