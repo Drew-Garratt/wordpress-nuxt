@@ -34,6 +34,11 @@ export default {
     }
   },
 
+  transition(to, from) {
+    console.log(to, from)
+    return 'fade'
+  },
+
   head() {
     return {
       title: `News | ${this.$store.state.meta.name}`,

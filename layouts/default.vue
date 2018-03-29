@@ -2,14 +2,11 @@
   <div class="app">
     <the-header/>
     <nuxt/>
+    <transition name="test">
+      <p>test</p>
+    </transition>
   </div>
 </template>
-
-<style lang="scss">
-.button {
-  font-size: em(12px);
-}
-</style>
 
 <script>
 export default {
