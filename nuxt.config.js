@@ -15,16 +15,8 @@ module.exports = {
       ]
     ]
   ],
-  workbox: {
-    runtimeCaching: [
-      {
-        urlPattern: '^https://fonts.(?:googleapis|gstatic).com/(.*)',
-        // Defaults to `networkFirst` if omitted
-        handler: 'cacheFirst',
-        // Defaults to `GET` if omitted
-        method: 'GET'
-      }
-    ]
+  axios: {
+    proxyHeadersIgnore: ['host', 'accept', 'accept-encoding']
   },
   plugins: [
     { src: '~plugins/web-font-loader', ssr: false },
