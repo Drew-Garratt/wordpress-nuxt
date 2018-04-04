@@ -1,4 +1,5 @@
 const webpack = require('webpack')
+require('dotenv').config()
 
 module.exports = {
   modules: [
@@ -17,6 +18,24 @@ module.exports = {
   ],
   axios: {
     proxyHeadersIgnore: ['host', 'accept', 'accept-encoding']
+  },
+  workbox: {
+    runtimeCaching: [
+      {
+        urlPattern: process.env.WP_API + '/wp-json/.*',
+        strategyOptions: {
+          cacheName: 'wordpress-cache',
+          cacheExpiration: {
+            maxEntries: 10,
+            maxAgeSeconds: 300
+          }
+        }
+      },
+      {
+        urlPattern: '^https://fonts.(?:googleapis|gstatic).com/(.*)',
+        handler: 'cacheFirst'
+      }
+    ]
   },
   plugins: [
     { src: '~plugins/web-font-loader', ssr: false },
