@@ -17,3 +17,4 @@ dist
 
 # PWA Module
 sw.*
+static/sw.js
