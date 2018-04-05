@@ -52,8 +52,7 @@ export default {
     })
   },
 
-  transition(to, from) {
-    console.log(to, from)
+  transition() {
     return 'fade'
   },
 

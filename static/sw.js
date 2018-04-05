@@ -28,24 +28,24 @@ workboxSW.precache([
     "revision": "b2eaf7624f7ee8ab3fa306ddfbeb0d37"
   },
   {
-    "url": "/_nuxt/manifest.ae7475be5d03f8454876.js",
-    "revision": "dad2670cf6896b2cb4adc7261e4dd7e5"
+    "url": "/_nuxt/manifest.2f97de71cf1487e0fda8.js",
+    "revision": "26023056228bc9c296624546da386a2f"
   },
   {
-    "url": "/_nuxt/pages__slug__subSlug.b6a177859123a18b0c3b.js",
-    "revision": "8fcc8695803b02e5b1c7de34a44fb23b"
+    "url": "/_nuxt/pages__slug__subSlug.82d4682f3a3ade772ace.js",
+    "revision": "6fea15b6c836f1055b48752643f6f4b5"
   },
   {
-    "url": "/_nuxt/pages__slug_index.bf61ef2645de5f550ea6.js",
-    "revision": "7ed7f2c5da5163ff67169e02297f0518"
+    "url": "/_nuxt/pages__slug_index.af27d2589d5a51a3fdb8.js",
+    "revision": "cbff264d9cd1a66a44959bfd1401d761"
   },
   {
-    "url": "/_nuxt/pages_index.1b4adadc3a3ac331dc9e.js",
-    "revision": "ec3cc5cd5e94fca63fb778089f4d939c"
+    "url": "/_nuxt/pages_index.d034d9490b28d7edbc75.js",
+    "revision": "0b215053fd8766291b2a5b43b0504458"
   },
   {
-    "url": "/_nuxt/pages_news__slug.145fa2aa8fb3803e5fca.js",
-    "revision": "73327b66b25da5f4244dbb0daf232cf8"
+    "url": "/_nuxt/pages_news__slug.087a6f767aeb073a301a.js",
+    "revision": "e3a09f3467e92ae3d9a8c4181c7c8f1a"
   },
   {
     "url": "/_nuxt/pages_news_index.18ac1aaba4998f51b7c3.js",
@@ -61,4 +61,10 @@ workboxSW.precache([
 workboxSW.router.registerRoute(new RegExp('/_nuxt/.*'), workboxSW.strategies.cacheFirst({}), 'GET')
 
 workboxSW.router.registerRoute(new RegExp('/.*'), workboxSW.strategies.networkFirst({}), 'GET')
+
+workboxSW.router.registerRoute(new RegExp('https://nuxt.cunning.as/wp-json/.*'), workboxSW.strategies.networkFirst({"cacheName":"wordpress","cacheExpiration":{"maxEntries":50,"maxAgeSeconds":300}}), 'GET')
+
+workboxSW.router.registerRoute(new RegExp('^https://fonts.(?:googleapis|gstatic).com/(.*)'), workboxSW.strategies.cacheFirst({"cacheName":"googlefonts"}), 'GET')
+
+workboxSW.router.registerRoute(new RegExp('/\.(?:png|gif|jpg|jpeg|svg)$/'), workboxSW.strategies.networkFirst({"cacheName":"images","cacheExpiration":{"maxEntries":60,"maxAgeSeconds":86400}}), 'GET')
 

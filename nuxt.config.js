@@ -24,16 +24,29 @@ module.exports = {
       {
         urlPattern: process.env.WP_API + '/wp-json/.*',
         strategyOptions: {
-          cacheName: 'wordpress-cache',
+          cacheName: 'wordpress',
           cacheExpiration: {
-            maxEntries: 10,
+            maxEntries: 50,
             maxAgeSeconds: 300
           }
         }
       },
       {
         urlPattern: '^https://fonts.(?:googleapis|gstatic).com/(.*)',
-        handler: 'cacheFirst'
+        handler: 'cacheFirst',
+        strategyOptions: {
+          cacheName: 'googlefonts'
+        }
+      },
+      {
+        urlPattern: '/\\.(?:png|gif|jpg|jpeg|svg)$/',
+        strategyOptions: {
+          cacheName: 'images',
+          cacheExpiration: {
+            maxEntries: 60,
+            maxAgeSeconds: 24 * 60 * 60
+          }
+        }
       }
     ]
   },

@@ -5,8 +5,8 @@
       <div class="layout">
         <div
           class="project lazyload"
-          data-bg="http://via.placeholder.com/800x300"
-          style="background-image: url('http://via.placeholder.com/100x37')"
+          data-bg="https://via.placeholder.com/800x300"
+          style="background-image: url('https://via.placeholder.com/100x37')"
         >
           <div class="message">
             <h3>Faboulus stufff</h3>
@@ -15,8 +15,8 @@
         </div>
         <div
           class="project lazyload"
-          data-bg="http://via.placeholder.com/800x300"
-          style="background-image: url('http://via.placeholder.com/100x37')"
+          data-bg="https://via.placeholder.com/800x300"
+          style="background-image: url('https://via.placeholder.com/100x37')"
         >
           <div class="message">
             <h3>Faboulus stufff</h3>
@@ -25,8 +25,8 @@
         </div>
         <div
           class="project lazyload"
-          data-bg="http://via.placeholder.com/800x300"
-          style="background-image: url('http://via.placeholder.com/100x37')"
+          data-bg="https://via.placeholder.com/800x300"
+          style="background-image: url('https://via.placeholder.com/100x37')"
         >
           <div class="message">
             <h3>Faboulus stufff</h3>
@@ -35,8 +35,8 @@
         </div>
         <div
           class="project lazyload"
-          data-bg="http://via.placeholder.com/800x300"
-          style="background-image: url('http://via.placeholder.com/100x37')"
+          data-bg="https://via.placeholder.com/800x300"
+          style="background-image: url('https://via.placeholder.com/100x37')"
         >
           <div class="message">
             <h3>Faboulus stufff</h3>
